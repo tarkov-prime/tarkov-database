@@ -2,6 +2,8 @@ import got, { ExtendOptions, Got } from 'got';
 import { ItemCountsResponse } from './typings/responses/ItemCountsResponse';
 import { ErrorResponse } from './typings/responses/ErrorResponse';
 import { TokenResponse } from './typings/responses/TokenResponse';
+import { ItemKind } from './enum/ItemKind';
+import { ItemsMap } from './typings/tarkov/common/ItemsMap';
 
 export class TarkovDatabase {
   static ROOT_URL =
@@ -88,5 +90,9 @@ export class TarkovDatabase {
     );
 
     return countsResponse.kinds;
+  }
+
+  async getItems<T extends ItemKind>(kind: T): Promise<Pick<ItemsMap, T>> {
+    throw new Error('Unimplemented');
   }
 }
