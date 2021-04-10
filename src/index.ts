@@ -1,3 +1,1 @@
-import { TarkovDatabase } from './TarkovDatabase';
-
-export default TarkovDatabase;
+export { TarkovDatabase } from './TarkovDatabase';
