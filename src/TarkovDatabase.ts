@@ -4,7 +4,8 @@ import { ErrorResponse } from './typings/responses/ErrorResponse';
 import { TokenResponse } from './typings/responses/TokenResponse';
 
 export class TarkovDatabase {
-  static ROOT_URL = process.env.TARKOV_DATABASE_URL || 'https://api.tarkov-database.com';
+  static ROOT_URL =
+    process.env.TARKOV_DATABASE_URL || 'https://api.tarkov-database.com';
 
   static TOKEN_ENDPOINT = 'v2/token';
 
@@ -12,7 +13,11 @@ export class TarkovDatabase {
 
   api: Got;
 
-  constructor(token: string, applicationName: string, ...options: Array<Got | ExtendOptions>) {
+  constructor(
+    token: string,
+    applicationName: string,
+    ...options: Array<Got | ExtendOptions>
+  ) {
     this.api = got.extend({
       headers: {
         Authorization: `Bearer ${token}`,
@@ -22,7 +27,9 @@ export class TarkovDatabase {
         // If response includes a 401, try to fetch a new token and retry
         afterResponse: [
           async (response, retryWithMergedOptions) => {
-            const wasAuthenticating = response.url === `${TarkovDatabase.ROOT_URL}/${TarkovDatabase.TOKEN_ENDPOINT}`;
+            const wasAuthenticating =
+              response.url ===
+              `${TarkovDatabase.ROOT_URL}/${TarkovDatabase.TOKEN_ENDPOINT}`;
 
             if (response.statusCode === 401 && !wasAuthenticating) {
               const updatedOptions = {
@@ -54,7 +61,9 @@ export class TarkovDatabase {
     const { body } = await this.api.get<Response | ErrorResponse>(path);
 
     if ('status' in body) {
-      throw new Error(`Server sent ${body.status} - ${body.message} - ${body.code}`);
+      throw new Error(
+        `Server sent ${body.status} - ${body.message} - ${body.code}`,
+      );
     }
 
     return body;
@@ -66,7 +75,9 @@ export class TarkovDatabase {
    * @returns New token
    */
   async getNewToken() {
-    const tokenResponse = await this.request<TokenResponse>(TarkovDatabase.TOKEN_ENDPOINT);
+    const tokenResponse = await this.request<TokenResponse>(
+      TarkovDatabase.TOKEN_ENDPOINT,
+    );
 
     return tokenResponse.token;
   }

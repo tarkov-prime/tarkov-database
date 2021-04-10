@@ -39,5 +39,5 @@ describe('TarkovDatabase Class', () => {
         expect(keys.sort()).toEqual(['count', 'modified']);
       });
     });
-  })
+  });
 });
