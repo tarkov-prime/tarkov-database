@@ -27,6 +27,8 @@ jobs:
 
       - name: Test
         run: yarn test --ci --coverage --maxWorkers=2
+        env:
+          TOKEN: ${{ secrets.TOKEN }}
 
       - name: Build
         run: yarn build
