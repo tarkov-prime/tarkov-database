@@ -13,6 +13,8 @@ export class TarkovDatabase {
 
   static ITEM_COUNTS_ENDPOINT = 'v2/item';
 
+  static ITEMS_ENDPOINT = 'v2/item';
+
   api: Got;
 
   constructor(
@@ -89,10 +91,14 @@ export class TarkovDatabase {
       TarkovDatabase.ITEM_COUNTS_ENDPOINT,
     );
 
-    return countsResponse.kinds;
+    return countsResponse;
   }
 
   async getItems<T extends ItemKind>(kind: T): Promise<Pick<ItemsMap, T>> {
-    throw new Error('Unimplemented');
+    const itemsResponse = await this.request<Pick<ItemsMap, T>>(
+      `${TarkovDatabase.ITEMS_ENDPOINT}/${kind}`,
+    );
+
+    return itemsResponse;
   }
 }

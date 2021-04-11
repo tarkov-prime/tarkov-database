@@ -12,5 +12,5 @@ export type ItemProperties = {
   rarity: string;
   grid: GridProperties;
   _modified: number;
-  _Kind: ItemKind;
+  _kind: ItemKind;
 };

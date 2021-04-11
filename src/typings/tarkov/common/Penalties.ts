@@ -3,4 +3,4 @@ export type Penalties = {
   speed?: number;
   ergonomicsFP?: number;
   deafness?: string;
-}
+};

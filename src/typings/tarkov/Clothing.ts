@@ -8,6 +8,6 @@ export type ClothingProperties = {
   blocking: string[];
   penalties: Penalties;
   slots: Slots;
-}
+};
 
 export type Clothing = ItemProperties & ClothingProperties;

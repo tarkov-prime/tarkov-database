@@ -6,7 +6,7 @@ import { Slots } from './common/Slots';
 export type ArmorMaterial = {
   name: string;
   destructibility: number;
-}
+};
 
 export type ArmorStats = {
   class: number;
@@ -14,7 +14,7 @@ export type ArmorStats = {
   material: ArmorMaterial;
   bluntThroughput: number;
   zones: string[];
-}
+};
 
 export type ArmorProperties = {
   _kind: 'armor';
@@ -24,6 +24,6 @@ export type ArmorProperties = {
   blocking: string[];
   slots: Slots;
   compatibility: ItemList;
-}
+};
 
 export type Armor = ItemProperties & ArmorProperties;

@@ -1,22 +1,20 @@
 import { AmmunitionCaliber } from './Ammunition';
-import { ItemProperties } from './common/ItemProperties'
+import { ItemProperties } from './common/ItemProperties';
 import { Slots } from './common/Slots';
 
-export type FirearmType =
-  | 'primary'
-  | 'secondary';
+export type FirearmType = 'primary' | 'secondary';
 
 export type FirearmClass =
-  | "assaultCarbine"
-  | "assaultRifle"
-  | "grenadeLauncher"
-  | "machinegun"
-  | "marksmanRifle"
-  | "pistol"
-  | "shotgun"
-  | "smg"
-  | "sniperRifle"
-  | "specialWeapon";
+  | 'assaultCarbine'
+  | 'assaultRifle'
+  | 'grenadeLauncher'
+  | 'machinegun'
+  | 'marksmanRifle'
+  | 'pistol'
+  | 'shotgun'
+  | 'smg'
+  | 'sniperRifle'
+  | 'specialWeapon';
 
 export type FirearmProperties = {
   _kind: 'firearm';
@@ -34,6 +32,6 @@ export type FirearmProperties = {
   recoilVertical: number;
   recoilHorizontal: number;
   slots: Slots;
-}
+};
 
 export type Firearm = ItemProperties & FirearmProperties;

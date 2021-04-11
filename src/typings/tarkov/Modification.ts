@@ -11,4 +11,4 @@ export type ModificationProperties = {
   slots: Slots;
   compatibility: ItemList;
   conflicts: ItemList;
-}
+};

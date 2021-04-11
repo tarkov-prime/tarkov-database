@@ -6,4 +6,4 @@ export type Grid = {
   width: number;
   maxWeight: number;
   filter: ItemList;
-}
+};

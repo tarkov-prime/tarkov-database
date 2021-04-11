@@ -1,9 +1,6 @@
 import { ItemProperties } from './common/ItemProperties';
 
-export type GrenadeType =
-  | 'flash'
-  | 'frag'
-  | 'smoke';
+export type GrenadeType = 'flash' | 'frag' | 'smoke';
 
 export type GrenadeProperties = {
   _kind: 'grenade';
@@ -15,6 +12,6 @@ export type GrenadeProperties = {
   contusionDistance: number;
   strength: number;
   emitTime: number;
-}
+};
 
 export type Grenade = ItemProperties & GrenadeProperties;

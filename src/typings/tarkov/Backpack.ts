@@ -6,6 +6,6 @@ export type BackpackProperties = {
   _kind: 'backpack';
   grids: Grid[];
   penalties: Penalties;
-}
+};
 
 export type Backpack = ItemProperties & BackpackProperties;

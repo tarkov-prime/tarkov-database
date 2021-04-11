@@ -3,4 +3,4 @@ export type RGBA = {
   g: number;
   b: number;
   a: number;
-}
+};
