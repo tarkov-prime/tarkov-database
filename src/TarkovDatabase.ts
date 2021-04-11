@@ -2,6 +2,8 @@ import got, { ExtendOptions, Got } from 'got';
 import { ItemCountsResponse } from './typings/responses/ItemCountsResponse';
 import { ErrorResponse } from './typings/responses/ErrorResponse';
 import { TokenResponse } from './typings/responses/TokenResponse';
+import { ItemKind } from './enum/ItemKind';
+import { ItemsMap } from './typings/tarkov/common/ItemsMap';
 
 export class TarkovDatabase {
   static ROOT_URL =
@@ -10,6 +12,8 @@ export class TarkovDatabase {
   static TOKEN_ENDPOINT = 'v2/token';
 
   static ITEM_COUNTS_ENDPOINT = 'v2/item';
+
+  static ITEMS_ENDPOINT = 'v2/item';
 
   api: Got;
 
@@ -87,6 +91,14 @@ export class TarkovDatabase {
       TarkovDatabase.ITEM_COUNTS_ENDPOINT,
     );
 
-    return countsResponse.kinds;
+    return countsResponse;
+  }
+
+  async getItems<T extends ItemKind>(kind: T): Promise<Pick<ItemsMap, T>> {
+    const itemsResponse = await this.request<Pick<ItemsMap, T>>(
+      `${TarkovDatabase.ITEMS_ENDPOINT}/${kind}`,
+    );
+
+    return itemsResponse;
   }
 }
